@@ -153,6 +153,8 @@
       cursor: pointer;
       font-size: 1rem;
       transition: 0.3s;
+      position: relative;
+      top: 70px; /* tombol turun tanpa menambah tinggi header */
     }
 
     header .btn:hover {
@@ -322,6 +324,29 @@
       color: var(--green);
       font-weight: 500;
     }
+    .address {
+      margin-top: 1.2rem;
+      background-color: #fff;
+      color: var(--green-dark);
+      font-weight: 600;
+      font-style: italic;
+      padding: 6px 12px;
+      border-left: 1.2px solid #c4d1b3;
+      border-radius: 8px;
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      box-shadow: 0 6px 12px rgba(75, 102, 61, 0.1);
+      transition: box-shadow 0.25s background-color 0.25s ease;
+      font-size: 0.85rem;
+    }
+
+    .address:hover {
+      background-color: #f4f9eb;
+      box-shadow: 0 5px 10px rgba(75, 102, 61, 0.18);
+    }
+
 
     /* ========================== FOOTER ========================== */
     footer {
@@ -436,7 +461,7 @@
   </section>
 
   <section id="packages">
-    <h2>Paket Dirumah</h2>
+    <h2>Paket Di Rumah</h2>
     <div class="packages">
       <div class="package">
         <h3>Paket Bronze</h3>
@@ -459,7 +484,7 @@
   </section>
 
   <section id="packages-DiGedung">
-    <h2>Paket DiGedung</h2>
+    <h2>Paket Di Gedung</h2>
     <div class="packages">
       <div class="package">
         <h3>Paket Bronze</h3>
@@ -493,19 +518,22 @@
     <div class="contact-container">
       <div class="contact-item">
         <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" />
-        <a href="https://www.instagram.com/weddingdecor.id">@cr.dekorasi</a>
+        <a href="https://www.instagram.com/kreasikudekor">@kreasikudekor</a>
       </div>
 
       <div class="contact-item">
         <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" />
-        <a href="https://wa.me/628551234567">+62 851-5788-9242</a>
+        <a href="https://wa.me/6285157889242">+62 851-5788-9242</a>
       </div>
 
       <div class="contact-item">
         <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
-        <a href="mailto:weddingdecor.id@gmail.com">Kreasikudekor@gmail.com</a>
+        <a href="mailto:kreasikudekor@gmail.com">Kreasikudekor@gmail.com</a>
       </div>
     </div>
+    <p class="address">
+      Alamat: Kp. Desa Neglasari RT003/RW003, Kec. Dramaga, Kab. Bogor Barat
+    </p>
   </section>
 
   <footer>
