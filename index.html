@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kreasiku Decoration</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ========================== COLOR VARIABLES ========================== */
+    :root {
+      --green: #4B663D;
+      --green-dark: #3A4F30;
+      --green-soft: #98B08C;
+      --green-bg: #EAF2EC;
+      --text: #222;
+    }
+
+    /* ========================== GLOBAL ========================== */
+    body {
+      background: linear-gradient(135deg, #ffffff, #98B08C);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ========================== NAVBAR ========================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: #fff;
+      border-bottom: 2px solid var(--green);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 25px;
+      z-index: 100;
+    }
+
+    nav .logo img {
+      height: 75px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .menu-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--green);
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--green-dark);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: var(--green);
+    }
+
+    /* ========================== MOBILE NAV ========================== */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+
+      nav .logo img { height: 60px; }
+
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #fff;
+        width: 190px;
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        border: 1px solid var(--green);
+        z-index: 200;
+      }
+
+      nav ul.show { display: flex; }
+    }
+
+    /* ========================== HEADER ========================== */
+    header {
+      padding: 8rem 2rem 5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 4rem;
+      background: linear-gradient(135deg, #ffffff, #EAF2EC, #98B08C);
+    }
+
+    header .text { max-width: 500px; }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: var(--green);
+      font-family: 'Playfair Display', serif;
+    }
+
+    header p { margin: 1.2rem 0; color: #444; }
+
+    header .btn {
+      background: var(--green);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    header .btn:hover { background: var(--green-dark); }
+
+    header img {
+      width: 260px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    @media(max-width:768px){
+      header { padding-top: 6rem; flex-direction: column; text-align: center; }
+      header img { width: 100%; max-width: 360px; }
+    }
+
+    /* ========================== SECTIONS ========================== */
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .services, .packages, .packages-lainnya {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+
+    .service, .package, .package-lainnya-box {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--green-soft);
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .service:hover, .package:hover, .package-lainnya-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--green);
+    }
+
+    .service h3, .package h3, .package-lainnya-box h3 {
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    /* ========================== GALLERY ========================== */
+    #gallery {
+      background: linear-gradient(135deg, #ffffff, #EAF2EC, #98B08C);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: grayscale(40%);
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+      filter: grayscale(0%);
+    }
+
+    /* ========================== CONTACT ========================== */
+    #contact {
+      background: linear-gradient(135deg, #ffffff, #98B08C);
+    }
+
+    .contact-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .contact-item {
+      width: 300px;
+      padding: 1rem 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--green-soft);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transition: 0.3s;
+    }
+
+    .contact-item:hover { background: var(--green); color: #fff; }
+    .contact-item:hover a { color: #fff; }
+    .contact-item img { width: 26px; }
+    .contact-item a { text-decoration: none; color: var(--green); font-weight: 500; }
+
+    /* ========================== FOOTER ========================== */
+    footer {
+      background: var(--green);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .detail-btn {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .detail-btn:hover { background: var(--green-dark); }
+    /* ==== Reduce section spacing on mobile for package areas only ==== */
+    @media (max-width: 768px) {
+      #packages,
+      #packages-DiGedung,
+      #packages-lainnya {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="3.png" alt="Kreasiku Decoration">
+    </div>
+
+    <div class="menu-wrapper">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#gallery">Galeri</a></li>
+        <li><a href="#packages">Paket</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="text">
+      <h1>Wedding Decoration</h1>
+      <p>Ciptakan momen pernikahan elegan dan tak terlupakan dengan dekorasi modern dan elegan.</p>
+      <button class="btn" onclick="scrollToSection('contact')">Hubungi Kami</button>
+    </div>
+    <img src="Gambar.webp" alt="">
+  </header>
+
+  <section id="services">
+    <h2>Layanan Kami</h2>
+    <div class="services">
+      <div class="service">
+        <h3>Wedding Decoration</h3>
+        <ul>
+          <li>Backdrop & Arch Elegan</li>
+          <li>Meja & Centerpiece Minimalis</li>
+          <li>Pencahayaan Modern</li>
+        </ul>
+      </div>
+
+      <div class="service">
+        <h3>Intimate Wedding</h3>
+        <ul>
+          <li>Konsep Sederhana & Stylish</li>
+          <li>Signage Custom</li>
+          <li>Photo Corner Eksklusif</li>
+        </ul>
+      </div>
+
+      <div class="service">
+        <h3>Engagement</h3>
+        <ul>
+          <li>Floral Arch Putih</li>
+          <li>Boho Seating</li>
+          <li>Lampu Gantung Estetik</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Galeri</h2>
+    <div class="gallery">
+      <img src="gambar 10.jpg">
+      <img src="Gambar 15.webp">
+      <img src="Gambar 13.jpg">
+      <img src="14.jpg">
+    </div>
+  </section>
+
+  <section id="packages">
+    <h2>Paket Dirumah</h2>
+    <div class="packages">
+      <div class="package">
+        <h3>Paket Bronze</h3>
+        <p>Konsep dekorasi sesuai keinginan dan budget anda.</p>
+        <a href="paket-bronze.html" class="detail-btn">Lihat Detail</a>
+      </div>
+
+      <div class="package">
+        <h3>Paket Silver</h3>
+        <p>Dekorasi modern minimalis untuk acara outdoor dan indoor.</p>
+        <a href="paket-silver.html" class="detail-btn">Lihat Detail</a>
+      </div>
+
+      <div class="package">
+        <h3>Paket Gold</h3>
+        <p>Dekorasi Outdoor dan indoor bertema apapun yang anda inginkan.</p>
+        <a href="paket-gold.html" class="detail-btn">Lihat Detail</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="packages-DiGedung">
+    <h2>Paket DiGedung</h2>
+    <div class="packages">
+      <div class="package">
+        <h3>Paket Bronze</h3>
+        <p>Konsep dekorasi sesuai keinginan untuk acara indoor.</p>
+        <a href="paket-bronzeG.html" class="detail-btn">Lihat Detail</a>
+      </div>
+
+      <div class="package">
+        <h3>Paket Silver</h3>
+        <p>Dekorasi modern untuk acara indoor.</p>
+        <a href="paket-silverG.html" class="detail-btn">Lihat Detail</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== FIXED VERSION ========================== -->
+  <section id="packages-lainnya">
+    <h2>Paket Lainnya</h2>
+    <div class="packages-lainnya">
+      <div class="package-lainnya-box">
+        <h3>Paket Lainnya</h3>
+        <p>Menyesuaikan konsep dan kebutuhan acara Anda.</p>
+        <a href="paket-custom.html" class="detail-btn">Lihat Detail</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Hubungi Kami</h2>
+    <p>Kami siap membantu mewujudkan pernikahan impianmu.</p>
+
+    <div class="contact-container">
+
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png">
+        <a href="https://www.instagram.com/weddingdecor.id">@cr.dekorasi</a>
+      </div>
+
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
+
+        <a href="https://wa.me/628551234567">+62 851-5788-9242</a>
+      </div>
+
+      <div class="contact-item">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+        <a href="mailto:weddingdecor.id@gmail.com">Kreasikudekor@gmail.com</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Kreasiku Decoration — Elegant & Minimalist Wedding Design
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+    }
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
