@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kreasiku Decoration</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
     /* ========================== COLOR VARIABLES ========================== */
     :root {
-      --green: #4B663D;
-      --green-dark: #3A4F30;
-      --green-soft: #98B08C;
-      --green-bg: #EAF2EC;
+      --green: #4b663d;
+      --green-dark: #3a4f30;
+      --green-soft: #98b08c;
+      --green-bg: #eaf2ec;
       --text: #222;
     }
 
     /* ========================== GLOBAL ========================== */
     body {
-      background: linear-gradient(135deg, #ffffff, #98B08C);
+      background: linear-gradient(135deg, #ffffff, #98b08c);
       color: var(--text);
       line-height: 1.6;
     }
@@ -35,7 +38,8 @@
     /* ========================== NAVBAR ========================== */
     nav {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       background: #fff;
       border-bottom: 2px solid var(--green);
@@ -84,9 +88,13 @@
 
     /* ========================== MOBILE NAV ========================== */
     @media (max-width: 768px) {
-      .menu-toggle { display: block; }
+      .menu-toggle {
+        display: block;
+      }
 
-      nav .logo img { height: 60px; }
+      nav .logo img {
+        height: 60px;
+      }
 
       nav ul {
         display: none;
@@ -99,15 +107,16 @@
         flex-direction: column;
         gap: 1rem;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
         border: 1px solid var(--green);
         z-index: 200;
       }
 
-      nav ul.show { display: flex; }
+      nav ul.show {
+        display: flex;
+      }
     }
 
-    /* ========================== HEADER ========================== */
     header {
       padding: 8rem 2rem 5rem;
       display: flex;
@@ -115,18 +124,25 @@
       align-items: center;
       justify-content: center;
       gap: 4rem;
-      background: linear-gradient(135deg, #ffffff, #EAF2EC, #98B08C);
+      background: linear-gradient(135deg, #ffffff, #eaf2ec, #98b08c);
+      position: relative;
+      border-radius: 18px;
     }
 
-    header .text { max-width: 500px; }
+    header .text {
+      max-width: 500px;
+    }
 
     header h1 {
       font-size: 2.8rem;
       color: var(--green);
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
     }
 
-    header p { margin: 1.2rem 0; color: #444; }
+    header p {
+      margin: 1.2rem 0;
+      color: #444;
+    }
 
     header .btn {
       background: var(--green);
@@ -139,20 +155,64 @@
       transition: 0.3s;
     }
 
-    header .btn:hover { background: var(--green-dark); }
+    header .btn:hover {
+      background: var(--green-dark);
+    }
 
     header img {
       width: 260px;
       border-radius: 18px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
     }
 
-    @media(max-width:768px){
-      header { padding-top: 6rem; flex-direction: column; text-align: center; }
-      header img { width: 100%; max-width: 360px; }
+    /* MOBILE HEADER WITH BACKGROUND IMAGE AND TRANSPARENT TEXT */
+    @media (max-width: 768px) {
+      header {
+        padding-top: 6rem;
+        flex-direction: column;
+        text-align: center;
+
+        /* Background image as header background */
+        background-image: url("Gambar.webp");
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: cover;
+
+        color: #fff; /* font putih agar kontras */
+        border-radius: 0;
+      }
+
+      /* Overlay dark transparent */
+      header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        z-index: 1;
+        border-radius: 0;
+      }
+
+      header .text {
+        position: relative;
+        z-index: 2;
+      }
+
+      header h1 {
+        color: #eaf2ec;
+      }
+
+      header p,
+      header .btn {
+        color: #fff;
+      }
+
+      header img {
+        display: none;
+      }
     }
 
-    /* ========================== SECTIONS ========================== */
     section {
       padding: 5rem 2rem;
       text-align: center;
@@ -162,37 +222,44 @@
       font-size: 2rem;
       color: var(--green);
       margin-bottom: 1rem;
-      font-family: 'Playfair Display', serif;
+      font-family: "Playfair Display", serif;
     }
 
-    .services, .packages, .packages-lainnya {
+    .services,
+    .packages,
+    .packages-lainnya {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
 
-    .service, .package, .package-lainnya-box {
+    .service,
+    .package,
+    .package-lainnya-box {
       background: #fff;
       border-radius: 10px;
       border: 1px solid var(--green-soft);
       padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       transition: 0.3s;
     }
 
-    .service:hover, .package:hover, .package-lainnya-box:hover {
+    .service:hover,
+    .package:hover,
+    .package-lainnya-box:hover {
       transform: translateY(-4px);
       border-color: var(--green);
     }
 
-    .service h3, .package h3, .package-lainnya-box h3 {
+    .service h3,
+    .package h3,
+    .package-lainnya-box h3 {
       color: var(--green);
       margin-bottom: 1rem;
     }
 
-    /* ========================== GALLERY ========================== */
     #gallery {
-      background: linear-gradient(135deg, #ffffff, #EAF2EC, #98B08C);
+      background: linear-gradient(135deg, #ffffff, #eaf2ec, #98b08c);
     }
 
     .gallery {
@@ -215,9 +282,8 @@
       filter: grayscale(0%);
     }
 
-    /* ========================== CONTACT ========================== */
     #contact {
-      background: linear-gradient(135deg, #ffffff, #98B08C);
+      background: linear-gradient(135deg, #ffffff, #98b08c);
     }
 
     .contact-container {
@@ -234,17 +300,28 @@
       background: #fff;
       border-radius: 8px;
       border: 1px solid var(--green-soft);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       display: flex;
       align-items: center;
       gap: 0.8rem;
       transition: 0.3s;
     }
 
-    .contact-item:hover { background: var(--green); color: #fff; }
-    .contact-item:hover a { color: #fff; }
-    .contact-item img { width: 26px; }
-    .contact-item a { text-decoration: none; color: var(--green); font-weight: 500; }
+    .contact-item:hover {
+      background: var(--green);
+      color: #fff;
+    }
+    .contact-item:hover a {
+      color: #fff;
+    }
+    .contact-item img {
+      width: 26px;
+    }
+    .contact-item a {
+      text-decoration: none;
+      color: var(--green);
+      font-weight: 500;
+    }
 
     /* ========================== FOOTER ========================== */
     footer {
@@ -265,30 +342,30 @@
       transition: 0.3s;
     }
 
-    .detail-btn:hover { background: var(--green-dark); }
-    
+    .detail-btn:hover {
+      background: var(--green-dark);
+    }
+
     @media (max-width: 768px) {
       #packages,
       #packages-DiGedung,
       #packages-lainnya {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-  }
-}
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+    }
     @media (max-width: 768px) {
       nav .logo {
-      margin-left: -30px; 
-  }
-}
-
+        margin-left: -40px; /* geser lebih kiri */
+      }
+    }
   </style>
 </head>
 
 <body>
-
   <nav>
     <div class="logo">
-      <img src="3.png" alt="Kreasiku Decoration">
+      <img src="3.png" alt="Kreasiku Decoration" />
     </div>
 
     <div class="menu-wrapper">
@@ -307,10 +384,13 @@
   <header id="home">
     <div class="text">
       <h1>Wedding Decoration</h1>
-      <p>Ciptakan momen pernikahan elegan dan tak terlupakan dengan dekorasi modern dan elegan.</p>
+      <p>
+        Ciptakan momen pernikahan elegan dan tak terlupakan dengan dekorasi
+        modern dan elegan.
+      </p>
       <button class="btn" onclick="scrollToSection('contact')">Hubungi Kami</button>
     </div>
-    <img src="Gambar.webp" alt="">
+    <img src="Gambar.webp" alt="" />
   </header>
 
   <section id="services">
@@ -319,8 +399,8 @@
       <div class="service">
         <h3>Wedding Decoration</h3>
         <ul>
-          <li>Backdrop & Arch Elegan</li>
-          <li>Meja & Centerpiece Minimalis</li>
+          <li>Backdrop &amp; Arch Elegan</li>
+          <li>Meja &amp; Centerpiece Minimalis</li>
           <li>Pencahayaan Modern</li>
         </ul>
       </div>
@@ -328,7 +408,7 @@
       <div class="service">
         <h3>Intimate Wedding</h3>
         <ul>
-          <li>Konsep Sederhana & Stylish</li>
+          <li>Konsep Sederhana &amp; Stylish</li>
           <li>Signage Custom</li>
           <li>Photo Corner Eksklusif</li>
         </ul>
@@ -348,10 +428,10 @@
   <section id="gallery">
     <h2>Galeri</h2>
     <div class="gallery">
-      <img src="gambar 10.jpg">
-      <img src="Gambar 15.webp">
-      <img src="Gambar 13.jpg">
-      <img src="14.jpg">
+      <img src="gambar 10.jpg" />
+      <img src="Gambar 15.webp" />
+      <img src="Gambar 13.jpg" />
+      <img src="14.jpg" />
     </div>
   </section>
 
@@ -395,7 +475,6 @@
     </div>
   </section>
 
-  
   <section id="packages-lainnya">
     <h2>Paket Lainnya</h2>
     <div class="packages-lainnya">
@@ -412,23 +491,20 @@
     <p>Kami siap membantu mewujudkan pernikahan impianmu.</p>
 
     <div class="contact-container">
-
       <div class="contact-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" />
         <a href="https://www.instagram.com/weddingdecor.id">@cr.dekorasi</a>
       </div>
 
       <div class="contact-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png">
-
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" />
         <a href="https://wa.me/628551234567">+62 851-5788-9242</a>
       </div>
 
       <div class="contact-item">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
         <a href="mailto:weddingdecor.id@gmail.com">Kreasikudekor@gmail.com</a>
       </div>
-
     </div>
   </section>
 
@@ -438,14 +514,13 @@
 
   <script>
     function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
     }
 
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("show");
     }
   </script>
-
 </body>
 </html>
 
