@@ -654,20 +654,29 @@
       setTimeout(() => text.classList.add("show"), 300);
       setTimeout(() => btn.classList.add("show"), 600);
       
-      const slideLeftElements = document.querySelectorAll(".slide-from-left");
-      const slideRightElements = document.querySelectorAll(".slide-from-right");
+     document.addEventListener("DOMContentLoaded", () => {
+    const slideElements = document.querySelectorAll(".slide-from-left, .slide-from-right");
 
-      slideLeftElements.forEach((el, index) => {
-      setTimeout(() => el.classList.add("show"), 800 + index * 200);
-    });
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // stop observe supaya animasi hanya sekali
+          }
+        });
+      },
+      {
+        threshold: 0.1, // elemen mulai trigger saat 10% terlihat
+      }
+    );
 
-      slideRightElements.forEach((el, index) => {
-      setTimeout(() => el.classList.add("show"), 1000 + index * 200);
-    });
-    });
+    slideElements.forEach(el => observer.observe(el));
+  });
   </script>
 </body>
 </html>
+
 
 
 
