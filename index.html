@@ -349,11 +349,71 @@
       transition: box-shadow 0.25s background-color 0.25s ease;
       font-size: 0.85rem;
     }
+    
+.address-card {
+  background: #ffffff;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 18px;
+  border: 2px solid var(--green-soft);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  text-align: center;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeUp 0.8s ease-out;
+}
+
+.address-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.address-card .location-icon {
+  font-size: 38px;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.address-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+.address-card a {
+  display: inline-block;
+  padding: 10px 18px;
+  background: var(--green);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.address-card a:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
 
     .address:hover {
       background-color: #f4f9eb;
       box-shadow: 0 5px 10px rgba(75, 102, 61, 0.18);
     }
+    @keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
     /* ========================== FOOTER ========================== */
     footer {
@@ -380,9 +440,26 @@
 
     @media (max-width: 768px) {
       nav .logo {
-        margin-left: -40px;
+        margin-left: padding: 12px 18px;
       }
-    }
+    
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .address h3 {
+    font-size: 20px;
+  }
+
+  .address-card {
+    padding: 22px;
+    margin-top: 30px;
+  }
+}
   </style>
 </head>
 
@@ -564,5 +641,6 @@
   </script>
 </body>
 </html>
+
 
 
