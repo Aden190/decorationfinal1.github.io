@@ -538,8 +538,8 @@
     <div class="gallery">
       <img src="gambar 10.jpg" class="slide-from-left" />
       <img src="Gambar 15.webp" class="slide-from-right" />
-      <img src="Gambar 13.jpg" />
-      <img src="14.jpg" />
+      <img src="Gambar 13.jpg" class="slide-from-left" />
+      <img src="14.jpg" class="slide-from-right" />
     </div>
   </section>
 
@@ -653,20 +653,22 @@
 
       setTimeout(() => text.classList.add("show"), 300);
       setTimeout(() => btn.classList.add("show"), 600);
+      
+      const slideLeftElements = document.querySelectorAll(".slide-from-left");
+      const slideRightElements = document.querySelectorAll(".slide-from-right");
 
-      const slideLeft = document.querySelector(".slide-from-left");
-      const slideRight = document.querySelector(".slide-from-right");
+      slideLeftElements.forEach((el, index) => {
+      setTimeout(() => el.classList.add("show"), 800 + index * 200);
+    });
 
-      if (slideLeft) {
-      setTimeout(() => slideLeft.classList.add("show"), 800);
-    }
-      if (slideRight) {
-      setTimeout(() => slideRight.classList.add("show"), 1000);
-    }
+      slideRightElements.forEach((el, index) => {
+      setTimeout(() => el.classList.add("show"), 1000 + index * 200);
+    });
     });
   </script>
 </body>
 </html>
+
 
 
 
