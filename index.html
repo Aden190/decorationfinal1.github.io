@@ -638,44 +638,46 @@
 
   <!-- ========================== JAVASCRIPT ========================== -->
   <script>
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    }
+   function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
 
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("show");
-    }
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
 
-    /* ========================== ANIMASI TEKS DI HEADER ========================== */
-    window.addEventListener("load", () => {
-      const text = document.querySelector("header .text");
-      const btn = document.querySelector("header .btn");
+/* ========================== ANIMASI TEKS DI HEADER ========================== */
+window.addEventListener("load", () => {
+  const text = document.querySelector("header .text");
+  const btn = document.querySelector("header .btn");
 
-      setTimeout(() => text.classList.add("show"), 300);
-      setTimeout(() => btn.classList.add("show"), 600);
-      
-     document.addEventListener("DOMContentLoaded", () => {
-    const slideElements = document.querySelectorAll(".slide-from-left, .slide-from-right");
+  setTimeout(() => text.classList.add("show"), 300);
+  setTimeout(() => btn.classList.add("show"), 600);
+});
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target); // stop observe supaya animasi hanya sekali
-          }
-        });
-      },
-      {
-        threshold: 0.1, // elemen mulai trigger saat 10% terlihat
+/* ========================== ANIMASI SLIDE SAAT SCROLL ========================== */
+const slideElements = document.querySelectorAll(".slide-from-left, .slide-from-right");
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target); // animasi hanya sekali
       }
-    );
+    });
+  },
+  {
+    threshold: 0.1,
+  }
+);
 
-    slideElements.forEach(el => observer.observe(el));
-  });
+slideElements.forEach(el => observer.observe(el));
+
   </script>
 </body>
 </html>
+
 
 
 
