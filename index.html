@@ -133,14 +133,14 @@
 
     header .text {
       max-width: 500px;
-      opacity: 0;                   /* ANIMASI TEKS */
-      transform: translateY(40px);  /* ANIMASI TEKS */
-      transition: 1s ease;          /* ANIMASI TEKS */
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease;
     }
 
     header .text.show {
-      opacity: 1;                   /* ANIMASI TEKS */
-      transform: translateY(0);     /* ANIMASI TEKS */
+      opacity: 1;
+      transform: translateY(0);
     }
 
     header h1 {
@@ -165,14 +165,14 @@
       transition: 0.3s;
       position: relative;
       top: 70px;
-      opacity: 0;                   /* ANIMASI TOMBOL */
-      transform: translateY(40px);  /* ANIMASI TOMBOL */
-      transition: 1s ease 0.3s;     /* delay animasi */
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease 0.3s;
     }
 
     header .btn.show {
-      opacity: 1;                   /* ANIMASI */
-      transform: translateY(0);     /* ANIMASI */
+      opacity: 1;
+      transform: translateY(0);
     }
 
     header img {
@@ -332,97 +332,85 @@
       font-weight: 500;
     }
 
-    .address {
-      margin-top: 1.2rem;
-      background-color: #fff;
-      color: var(--green-dark);
-      font-weight: 600;
-      font-style: italic;
-      padding: 6px 12px;
-      border-left: 1.2px solid #c4d1b3;
-      border-radius: 8px;
-      max-width: 280px;
+    .address-card {
+      background: #ffffff;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 18px;
+      border: 2px solid var(--green-soft);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      text-align: center;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
-      text-align: center;
-      box-shadow: 0 6px 12px rgba(75, 102, 61, 0.1);
-      transition: box-shadow 0.25s background-color 0.25s ease;
-      font-size: 0.85rem;
+      animation: fadeUp 0.8s ease-out;
     }
-    
-.address-card {
-  background: #ffffff;
-  padding: 30px;
-  margin-top: 40px;
-  border-radius: 18px;
-  border: 2px solid var(--green-soft);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  text-align: center;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  animation: fadeUp 0.8s ease-out;
-}
 
-.address-card h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--green);
-  margin-bottom: 10px;
-}
-
-.address-card .location-icon {
-  font-size: 38px;
-  color: var(--green);
-  margin-bottom: 12px;
-}
-
-.address-card p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-  margin-bottom: 18px;
-}
-
-.address-card a {
-  display: inline-block;
-  padding: 10px 18px;
-  background: var(--green);
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.address-card a:hover {
-  background: var(--green-dark);
-  transform: translateY(-2px);
-}
-
-    .address:hover {
-      background-color: #f4f9eb;
-      box-shadow: 0 5px 10px rgba(75, 102, 61, 0.18);
+    .address-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 10px;
     }
+
+    .address-card .location-icon {
+      font-size: 38px;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .address-card p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 18px;
+    }
+
+    .address-card a {
+      display: inline-block;
+      padding: 10px 18px;
+      background: var(--green);
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .address-card a:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
     @keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-  
 
     /* ========================== FOOTER ========================== */
     footer {
-      background: var(--green);
+      background: var(--green-dark);
       color: #fff;
       text-align: center;
-      padding: 2rem;
+      padding: 2.5rem 1rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    }
+
+    footer span {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
 
     .detail-btn {
@@ -444,24 +432,12 @@
       nav .logo {
         margin-left: padding: 12px 18px;
       }
-    
-  .hero h1 {
-    font-size: 36px;
-  }
 
-  .hero p {
-    font-size: 16px;
-  }
-
-  .address h3 {
-    font-size: 20px;
-  }
-
-  .address-card {
-    padding: 22px;
-    margin-top: 30px;
-  }
-}
+      .address-card {
+        padding: 22px;
+        margin-top: 30px;
+      }
+    }
   </style>
 </head>
 
@@ -610,16 +586,25 @@
       </div>
     </div>
 
-  <a 
-  class="address"
-  href="https://www.google.com/maps/search/?api=1&query=Jl.+K.H.+Tubagus+Asik+19,+Neglasari,+Dramaga,+Bogor+16680" 
-      target="_blank">
-      Alamat: Jl. K.H. Tubagus Asik 19, Neglasari, Kec. Dramaga, Kabupaten Bogor, Jawa Barat 16680
-  </a>
+    <!-- ========================== ADDRESS CARD ========================== -->
+    <div class="address-card">
+      <div class="location-icon">📍</div>
+      <h3>Alamat Kami</h3>
+      <p>
+        Jl. K.H. Tubagus Asik 19, Neglasari,  
+        Kec. Dramaga, Kabupaten Bogor, Jawa Barat 16680
+      </p>
+      <a 
+        href="https://www.google.com/maps/search/?api=1&query=Jl.+K.H.+Tubagus+Asik+19,+Neglasari,+Dramaga,+Bogor+16680" 
+        target="_blank">
+        Buka di Google Maps
+      </a>
+    </div>
+
   </section>
 
   <footer>
-    © 2025 Kreasiku Decoration — Elegant & Minimalist Wedding Design
+    © 2025 <span>Kreasiku Decoration</span> — Elegant & Minimalist Wedding Design
   </footer>
 
   <!-- ========================== JAVASCRIPT ========================== -->
@@ -643,7 +628,3 @@
   </script>
 </body>
 </html>
-
-
-
-
